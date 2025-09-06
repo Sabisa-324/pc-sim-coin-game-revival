@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>no</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: white;
+      background: url('https://i.ibb.co/TDm9ZPh8/Sans-titre-70-20250831171949.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .wrapper { display: flex; gap: 24px; width: 100%; max-width: 1200px; padding: 24px; }
+    #leaderboard {
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      border-radius: 12px;
+      min-width: 260px;
+      max-width: 320px;
+      max-height: calc(100vh - 48px);
+      overflow-y: auto;
+    }
+    #leaderboard h2 { margin-top: 0; }
+    .container {
+      flex: 1;
+      background: rgba(0,0,0,0.28);
+      border-radius: 16px;
+      padding: 28px 20px 36px;
+      text-align: center;
+      position: relative;
+    }
+    h1 {
+      font-size: 46px;
+      margin: 6px 0 26px;
+      color: #fff;
+      -webkit-text-stroke: 2px #000;
+    }
+    #localCoins { font-size: 42px; font-weight: bold; margin-top: 24px; color: #ffd700; text-shadow: 2px 2px 6px #000; }
+    #totalCoins { margin-top: 8px; font-size: 18px; color: #00dd00; text-shadow: 1px 1px 3px #000; }
+    input[type="text"], input[type="password"] {
+      font-size: 18px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      width: min(520px, 90%);
+      margin-top: 10px;
+    }
+    button {
+      font-size: 22px;
+      padding: 12px 24px;
+      margin: 10px 6px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      background-color: #4caf50;
+      color: #fff;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.45);
+    }
+    #earnBtn {
+      width: 200px; height: 100px; margin-top: 24px;
+      background-color: #00ff00; color: #000;
+      border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+      border: none; outline: none; user-select: none; cursor: pointer;
+    }
+    #earnBtn:active { background: #c9a92f; }
+    ol { padding-left: 0; list-style: decimal inside; text-align: left; margin: 12px 0 0; }
+    ol li {
+      background: rgba(255,255,255,0.12);
+      margin: 6px 0;
+      padding: 10px 14px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+    }
+    .rank-1 { background: #ffd700 !important; color: #000; font-weight: bold; }
+    .rank-2 { background: #c0c0c0 !important; color: #000; font-weight: bold; }
+    .rank-3 { background: #cd7f32 !important; color: #fff; font-weight: bold; }
+    #logoutBtn {
+      position: absolute;
+      top: 10px; left: 10px;
+      font-size: 16px; background: none;
+      color: #fff; text-decoration: underline;
+      cursor: pointer; border: none; padding: 0;
+      box-shadow: none;
+    }
+    @media (max-width: 900px) {
+      .wrapper { flex-direction: column; align-items: center; }
+      .container { order: 1; width: 92%; }
+      #leaderboard { order: 2; margin-top: 20px; width: 92%; max-width: 560px; max-height: unset; }
+      h1 { font-size: 36px; -webkit-text-stroke: 1.6px #000; }
+      #earnBtn { font-size: 26px; padding: 26px 48px; }
+      #localCoins { font-size: 34px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <main class="container">
+      <button id="logoutBtn" style="display:none;">Logout</button>
+      <h1>pc shim coin game ting</h1>
+	  
+
+      <div id="authUI">
+        <button id="showLogin">login</button>
+        <button id="showRegister">register</button>
+        <div id="loginForm" style="display:none;">
+          <input type="text" id="loginName" placeholder="nickname" />
+          <input type="password" id="loginPass" placeholder="password" />
+          <button id="loginBtn">login</button>
+        </div>
+        <div id="registerForm" style="display:none;">
+          <input type="text" id="regName" placeholder="enter nickname" />
+          <input type="password" id="regPass" placeholder="idk do ur password thing here" />
+          <button id="registerBtn">register</button>
+        </div>
+      </div>
+
+      <div id="gameUI" style="display:none;">
+        <button id="earnBtn">thi buton do thing</button>
+        <div id="localCoins">coin: 0</div>
+        <div id="totalCoins">your total score: 0</div>
+      </div>
+    </main>
+
+    <aside id="leaderboard">
+      <h2>leaderboard</h2>
+      <ol id="leaderboardList"></ol>
+    </aside>
+  </div>
+
+  <!-- External JavaScript file -->
+  <script src="script.js"></script>
+</body>
+</html>
