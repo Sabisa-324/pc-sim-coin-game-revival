@@ -1,6 +1,6 @@
 // what the foxtrot
 console.log("what u doing here btw")
-const API_BASE = "http://1.54.25.71:6066"; 
+const API_BASE = "https://okbutlike.3utilities.com:6066"; 
 const authUI = document.getElementById("authUI");
 const gameUI = document.getElementById("gameUI");
 const logoutBtn = document.getElementById("logoutBtn");
